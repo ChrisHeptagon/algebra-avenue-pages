@@ -34,3 +34,25 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.contentlayer/package.json
+.contentlayer/.cache/v0.2.9/compiled-contentlayer-config-CZ7SNKSM.mjs
+.contentlayer/.cache/v0.2.9/compiled-contentlayer-config-CZ7SNKSM.mjs.map
+.contentlayer/.cache/v0.2.9/compiled-contentlayer-config-YAL6KD5H.mjs
+.contentlayer/.cache/v0.2.9/compiled-contentlayer-config-YAL6KD5H.mjs.map
+.contentlayer/.cache/v0.2.9/data-CZ7SNKSM.json
+.contentlayer/generated/index.d.ts
+.contentlayer/generated/index.mjs
+.contentlayer/generated/types.d.ts
+.contentlayer/generated/Post/_index.json
+.contentlayer/generated/Post/_index.mjs
+.contentlayer/generated/Post/algebra_avenue_glossary.mdx.json
+.contentlayer/generated/Post/focus-directrix.mdx.json
+.contentlayer/generated/Post/imaginary_numbers.mdx.json
+.contentlayer/generated/Post/linear_quadratic_systems_of_equations.mdx.json
+.contentlayer/generated/Post/operations_with_complex_numbers.mdx.json
+.contentlayer/generated/Post/rules_of_exponents.mdx.json
+.contentlayer/generated/Post/simplifying_radicals-real-and-imaginary.mdx.json
+.contentlayer/generated/Post/solving_using_completing_the_square.mdx.json
+.contentlayer/generated/Post/solving_using_quadratic_formula.mdx.json
+.contentlayer/generated/Post/solving-using_factoring.mdx.json
+.contentlayer/generated/Post/vertex_form_of_a_quadratic_function.mdx.json

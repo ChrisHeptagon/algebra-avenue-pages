@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Clearview";
+  src: url("/fonts/clearview.woff2");
+}
+
+@font-face {
+  font-family: "Overpass";
+  src: url("/fonts/overpass-variableFont.woff2");
+}
+
+@font-face {
+  font-family: "Paytone";
+  src: url("/fonts/paytoneone-regular.woff2");
+}
