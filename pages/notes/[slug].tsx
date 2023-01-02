@@ -26,16 +26,22 @@ export async function getStaticProps({ params }) {
 
 function Paragraph(props){
     return (
-        <div className="py-5 mx-[10vw]">
-        <p className="text-justify" {...props}/>
+        <div className="py-5 text-[20px] mx-[10vw]">
+        <p className="text-justify font-Overpass" {...props}/>
         </div>
     )
 }
 
-function HeadingOne(props){
+function ImageWrapper(props){
+    return (
+        <img className=" bg-white border-[rgb(51,255,0)] border-[8px] mx-auto" {...props}/>
+    )
+}
+
+function HeadingTwo(props){
     return (
         <div>
-            <h1 className=" font-bold " {...props}/>
+            <h1 className="flex py-5 text-[30px] font-Clearview items-center justify-center font-bold " {...props}/>
         </div>
     )
 }
@@ -43,14 +49,14 @@ function HeadingOne(props){
 const PostLayout = ({ post }) => {
   const MDXContent = useMDXComponent(post.body.code);
   return (
-      <div>
+      <div className=" bg-yellow-300">
         <Head>
             <title>{post.title}</title>
         </Head>
         <Script strategy="beforeInteractive" src="/scripts/calculator.js"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.css"></link>
-        <div className="flex py-10 items-center justify-center">
-            <h1 className=" text-[20px] font-Clearview">{post.title}</h1>
+        <div className="flex py-5 items-center justify-center">
+            <h1 className=" text-[40px] font-Clearview">{post.title}</h1>
         </div>
         <MDXContent components={{
             DesmosGraph,
@@ -59,7 +65,8 @@ const PostLayout = ({ post }) => {
             MultipleChoice,
             ShortResponse,
             p:Paragraph,
-            h1:HeadingOne,
+            h2:HeadingTwo,
+            img:ImageWrapper
             }}></MDXContent>
       </div>
   );
