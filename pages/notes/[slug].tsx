@@ -34,26 +34,31 @@ function Paragraph(props){
 
 function ImageWrapper(props){
     return (
-        <img className=" bg-white border-[rgb(51,255,0)] border-[8px] mx-auto" {...props}/>
+        <img className=" bg-white border-[#389620] border-[8px] mx-auto" {...props}/>
     )
 }
 
 function HeadingTwo(props){
     return (
-        <div>
-            <h1 className="flex py-5 text-[30px] font-Clearview items-center justify-center font-bold " {...props}/>
-        </div>
+            <h2 className="flex py-5 text-[30px] font-Clearview text-center items-center justify-center font-bold " {...props}/>
+    )
+}
+
+function HeadingThree(props){
+    return (
+            <h3 className="flex py-5  text-[20px] font-Overpass text-center items-center justify-center font-bold " {...props}/>
     )
 }
 
 const PostLayout = ({ post }) => {
   const MDXContent = useMDXComponent(post.body.code);
   return (
-      <div className=" bg-yellow-300">
+      <div className=" py-10 bg-yellow-300">
         <Head>
             <title>{post.title}</title>
         </Head>
         <Script strategy="beforeInteractive" src="/scripts/calculator.js"/>
+        <Script strategy="beforeInteractive" src="/scripts/katex.min.js"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.css"></link>
         <div className="flex py-5 items-center justify-center">
             <h1 className=" text-[40px] font-Clearview">{post.title}</h1>
@@ -66,7 +71,8 @@ const PostLayout = ({ post }) => {
             ShortResponse,
             p:Paragraph,
             h2:HeadingTwo,
-            img:ImageWrapper
+            img:ImageWrapper,
+            h3:HeadingThree,
             }}></MDXContent>
       </div>
   );
