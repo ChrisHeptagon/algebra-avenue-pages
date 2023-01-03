@@ -1,28 +1,37 @@
-import { use, useState } from "react"
+import { ChangeEvent, FormEvent, use, useState } from "react"
 
-export function MultipleChoice({quizLabel, choices, correctAns}){
+type QuestionProps = {
+    quizLabel:string;
+    choices:Array<string>;
+    correctAns:string;
+    regex:string;
+
+};
+
+export function MultipleChoice(props: QuestionProps){
+    const { quizLabel, choices, correctAns } = props
     const [someChoice, changeChoice] = useState('');
     const [submit, setSubmit] = useState(false);
     var answerResult;
-    function handleChange(event){
+    function handleChange(event:ChangeEvent<HTMLInputElement>){
         changeChoice(event.target.value);
         console.log(someChoice);
     }
-    function handleSubmit(event){
+    function handleSubmit(event:FormEvent<HTMLFormElement>){
         event.preventDefault();
         setSubmit(true)
         console.log(someChoice)
     }
     if (someChoice === correctAns && submit === true){
-        answerResult = <div className="p-4 mb-4 w-fit text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-blue-200 dark:text-blue-800">
+        answerResult = <div className="p-4 mb-4 w-fit text-sm text-[white] bg-[green] rounded-lg">
         <span className="">Correct Answer!</span>
     </div>
     } else if (someChoice != correctAns && submit === true){
-        answerResult = <div className="p-4 mb-4 w-fit text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-blue-200 dark:text-blue-800">
+        answerResult = <div className="p-4 mb-4 w-fit text-sm text-[white] bg-[red] rounded-lg ">
         <span className="">Incorrect Answer!</span>
     </div>
     } else if (someChoice === '' && submit === true){
-        answerResult = <div className="p-4 mb-4 w-fit text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-blue-200 dark:text-blue-800">Pick an Answer!</div>
+        answerResult = <div className="p-4 mb-4 w-fit text-sm text-[white] bg-blue-100 rounded-lg">Pick an Answer!</div>
         }
     return (
         <div className="flex items-center justify-center">
@@ -41,10 +50,11 @@ export function MultipleChoice({quizLabel, choices, correctAns}){
                             </div>
                         </li>
                     ))}
-                </ul>
-            </form>                <div className="flex pt-5 items-center justify-center">
-                <button type="submit" onClick={handleSubmit} className=" bg-[#7e7eff] hover:bg-[#6d6dff] p-2 rounded-lg" >Submit</button>
+                    <div className="flex pt-5 items-center justify-center">
+                <button type="submit" className=" bg-[#7e7eff] hover:bg-[#6d6dff] p-2 rounded-lg inline-block" >Submit</button>
                 </div>
+                </ul>
+            </form>                
         </div>
         </div>
     )
@@ -55,18 +65,19 @@ MultipleChoice quizLabel="Practice Example 1" choices={["y = -1/8 (x+2)^2 + 1", 
 
 */
 
-export function ShortResponse({quizLabel, regex}){
+export function ShortResponse(props: QuestionProps){
+    const { quizLabel, regex } = props
     const reg = new RegExp(regex)
     var answerResponse; 
     const [text, setText] = useState('');
     const [submit, setSubmit] = useState(false);
 
-    function handleChange(event){
+    function handleChange(event:ChangeEvent<HTMLInputElement>){
         setText(event.target.value)
         console.log(text)
     }
 
-    function handleSubmit(event){
+    function handleSubmit(event:FormEvent<HTMLFormElement>){
         event.preventDefault();
         setSubmit(true)
         console.log(text)

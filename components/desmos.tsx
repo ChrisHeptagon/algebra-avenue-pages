@@ -1,6 +1,12 @@
 import Script from "next/script";
 
-export function DesmosGraph({divID, equations }): JSX.Element{
+type DesmosProps = {
+    divID: string;
+    equations: Array<string>;
+};
+
+export function DesmosGraph(props: DesmosProps){
+    const { divID, equations } = props;
     return (
     <div className="flex items-center justify-center p-10">
         <div id={divID} className="w-[1024px] h-[512px] border border-[#0011f8]">
@@ -16,7 +22,8 @@ export function DesmosGraph({divID, equations }): JSX.Element{
         )
 }
 
-export function DesmosGraphCalc({ divID }): JSX.Element{
+export function DesmosGraphCalc(props: DesmosProps){
+    const { divID } = props;
     return (
         <div className="flex items-center justify-center p-10">
         <div id={divID} className="w-[1024px] h-[512px] border border-[#0011f8]">
@@ -30,7 +37,8 @@ export function DesmosGraphCalc({ divID }): JSX.Element{
     )
 }
 
-export function DesmosCalc({ divID }): JSX.Element{
+export function DesmosCalc(props: DesmosProps){
+    const { divID } = props;
     return (
         <div className="flex items-center justify-center p-10">
         <div id={divID} className="w-[1024px] h-[512px] border border-[#0011f8]">

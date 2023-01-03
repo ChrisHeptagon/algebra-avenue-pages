@@ -5,17 +5,20 @@ import Script from "next/script";
 import { DesmosGraph, DesmosCalc, DesmosGraphCalc } from "components/desmos";
 import { MultipleChoice, ShortResponse } from "components/questions";
 import Head from "next/head";
+import { GetStaticPaths, GetStaticProps } from "next";
+import { ParsedUrlQuery } from "querystring";
+import { AnyAaaaRecord } from "dns";
 
 
-export async function getStaticPaths() {
-  const paths = allPosts.map((post) => "/" + post.url);
+export const getStaticPaths = async() => {
+    const paths = allPosts.map((post) => "/" + post.url);
   return {
     paths,
     fallback: false,
   };
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps = async ({params}:any) => {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
   return {
     props: {
@@ -24,7 +27,7 @@ export async function getStaticProps({ params }) {
   };
 }
 
-function Paragraph(props){
+function Paragraph(props: any){
     return (
         <div className="py-5 text-[20px] mx-[10vw]">
         <p className="text-justify font-Overpass" {...props}/>
@@ -32,25 +35,25 @@ function Paragraph(props){
     )
 }
 
-function ImageWrapper(props){
+function ImageWrapper(props: any){
     return (
         <img className=" bg-white border-[#389620] border-[8px] mx-auto" {...props}/>
     )
 }
 
-function HeadingTwo(props){
+function HeadingTwo(props: any){
     return (
             <h2 className="flex py-5 text-[30px] font-Clearview text-center items-center justify-center font-bold " {...props}/>
     )
 }
 
-function HeadingThree(props){
+function HeadingThree(props: any){
     return (
             <h3 className="flex py-5  text-[20px] font-Overpass text-center items-center justify-center font-bold " {...props}/>
     )
 }
 
-const PostLayout = ({ post }) => {
+const PostLayout = ({ post }:any) => {
   const MDXContent = useMDXComponent(post.body.code);
   return (
       <div className=" py-10 bg-yellow-300">
