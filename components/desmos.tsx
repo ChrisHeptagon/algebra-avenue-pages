@@ -2,7 +2,7 @@ import Script from "next/script";
 
 type DesmosProps = {
     divID: string;
-    equations: Array<string>;
+    equations: any;
 };
 
 export function DesmosGraph(props: DesmosProps){
