@@ -34,7 +34,7 @@ export function MultipleChoice({quizLabel, choices, correctAns}){
             <form className="flex items-center justify-center" onSubmit={handleSubmit}>
                 <ul className="w-fit h-fit">
                     {choices.map((choice, key) =>(
-                        <li id={key} className="w-full rounded-lg border">
+                        <li key={key} className="w-full rounded-lg border">
                             <div className=" rounded-lg flex items-center p-3 bg-[#bb0303]">
                                 <input id={choice} onChange={handleChange} className="w-4 h-4 text-blue-600   focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" type="radio" value={choice} name="list-radio" ></input>
                                 <label htmlFor={choice} className="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300" >{choice}</label>
