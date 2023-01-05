@@ -2,7 +2,7 @@ import Script from "next/script";
 
 type DesmosProps = {
     divID: string;
-    equations: Array<string>;
+    equations: any;
 };
 
 export function DesmosGraph(props: DesmosProps){
@@ -16,7 +16,7 @@ export function DesmosGraph(props: DesmosProps){
         `}
         </Script>
         </div>
-        {equations.map((equation: any) => (<Script key={equation} id={divID}>
+        {equations.map((equation:string) => (<Script key={equation} id={equation}>
             {`calculator.setExpression({latex: '${equation}' });`}</Script>))}
     </div>
         )
