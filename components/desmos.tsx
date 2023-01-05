@@ -16,11 +16,7 @@ export function DesmosGraph(props: DesmosProps){
         `}
         </Script>
         </div>
-<<<<<<< HEAD
         {equations.map((equation:string) => (<Script key={equation} id={equation}>
-=======
-        {equations.map((equation: any) => (<Script key={divID} id={divID}>
->>>>>>> 12ef17d7dd47ccb860598ccb09232443d024a6f2
             {`calculator.setExpression({latex: '${equation}' });`}</Script>))}
     </div>
         )
