@@ -29,7 +29,7 @@ export const getStaticProps = async ({params}:any) => {
 
 function Paragraph(props: any){
     return (
-        <div className="py-5 text-[20px] mx-[10vw]">
+        <div className="py-5 text-[20px] mx-[10vw] select-none">
         <p className="text-justify font-Overpass" {...props}/>
         </div>
     )

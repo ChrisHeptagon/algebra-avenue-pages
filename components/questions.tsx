@@ -35,7 +35,7 @@ export function MultipleChoice(props: QuestionProps){
         }
     return (
         <div className="flex items-center justify-center">
-        <div className="rounded-lg bg-[#f8be00] w-fit p-10">
+        <div className="rounded-lg bg-[#a07d0b] w-fit p-10">
         <div className="pb-1 flex items-center justify-center">
             {answerResult}
             </div>
@@ -44,14 +44,14 @@ export function MultipleChoice(props: QuestionProps){
                 <ul className="w-fit h-fit">
                     {choices.map((choice, key) =>(
                         <li key={key} className="w-full rounded-lg border">
-                            <div className=" rounded-lg flex items-center p-3 bg-[#bb0303]">
-                                <input id={choice} onChange={handleChange} className="w-4 h-4 text-blue-600   focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" type="radio" value={choice} name="list-radio" ></input>
+                            <div className=" rounded-lg flex items-center p-3 bg-[#8b3604]">
+                                <input id={choice} onChange={handleChange} className="w-4 h-4 text-blue-600 transition duration-200  focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" type="radio" value={choice} name="list-radio" ></input>
                                 <label htmlFor={choice} className="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300" >{choice}</label>
                             </div>
                         </li>
                     ))}
                     <div className="flex pt-5 items-center justify-center">
-                <button type="submit" className=" bg-[#7e7eff] hover:bg-[#6d6dff] p-2 rounded-lg inline-block" >Submit</button>
+                <button type="submit" className=" bg-[#fff0ad] hover:bg-[#ffbf48] p-2 transition rounded-lg inline-block" >Submit</button>
                 </div>
                 </ul>
             </form>                
@@ -88,17 +88,22 @@ export function ShortResponse(props: QuestionProps){
             <span className="">Correct Answer!</span>
         </div>
         
-    } else if (text === '' && submit === true)
+    } else if (text === '' && submit === true){
         answerResponse = 
         <div>
             <span className="p-4 mb-4 w-fit text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-blue-200 dark:text-blue-800">
                 Type Something
             </span>
-        </div>
+        </div>}
 
+    if (reg.test(text) === false && submit === true) {
+        answerResponse = <div className="p-4 mb-4 w-fit text-sm text-[#552a2a] bg-[#fd7b7b] rounded-lg ">
+            <span className="">Incorrect Answer!</span>
+        </div>
+    }
     return (
         <div className="flex items-center justify-center">
-        <div className="rounded-lg bg-[#0aa583] w-fit p-10">
+        <div className="rounded-lg bg-[#f8aa00] w-fit p-10">
             <div className="pb-7 flex items-center justify-center">
             {answerResponse}
             </div>
@@ -107,10 +112,10 @@ export function ShortResponse(props: QuestionProps){
             </div>
             <form onSubmit={handleSubmit}>
                 <div className="">
-                    <input type="text" onChange={handleChange} name="answer_form" className=" text-center block py-2.5 w-full bg-transparent border-b-2 border-[#000000] appearance-none   dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"/>
+                    <input type="text" onChange={handleChange} name="answer_form" className=" text-center block py-2.5 w-full bg-transparent border-b-2 border-[#000000] appearance-none transition duration-300  dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"/>
                 </div>
                 <div className="flex pt-5 items-center justify-center">
-                <button type="submit" className=" bg-[#7e7eff] hover:bg-[#6d6dff] p-2 rounded-lg" >Submit</button>
+                <button type="submit" className=" bg-[#f6ff79] hover:bg-[#f0c91c] p-2 transition duration-300 rounded-lg" >Submit</button>
                 </div>
             </form>
         </div>
