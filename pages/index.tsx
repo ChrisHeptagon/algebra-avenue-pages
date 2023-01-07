@@ -13,10 +13,10 @@ export function PostCard ({ post }: { post:any }) {
       </div>
     <div className="p-3">
       <span className="w-fit">
-    <a className="flex text-[#000000] font-Clearview items-end justify-center text-center text-[2vw]" href={post.url}>
+    <a className="flex text-[#ffffff] font-Clearview items-end justify-center text-center text-[2vw]" href={post.url}>
       <h2>{post.title}</h2>
     </a>
-    <a href={post.url} className="font-Overpass flex items-end justify-center text-center text-[1.5vw]">
+    <a href={post.url} className="font-Overpass text-[#ffffff] flex items-end justify-center text-center text-[1.5vw]">
       <p>{post.description}</p>
     </a>
     </span>
